@@ -1,0 +1,130 @@
+#include<stdio.h>
+int main(){
+	int m,n,m1,n1,i,j,k,v,c,A[10][10],B[10][10],C[10][10],sum,det,x,y,z,w;
+	printf("Creating first matrix  : ");
+	printf("\nEnter the no. of rows : ");
+	scanf("%d",&m);
+	printf("\nEnter the no. of columns : ");
+	scanf("%d",&n);
+	for(i=0;i<m;i++){
+		for(j=0;j<n;j++){
+			printf("Enter the element at  %d row and %d column: ",i+1,j+1);
+			scanf("%d",&v);
+			A[i][j]=v;
+		}
+	}
+	printf("\nFirst Matrix : \n");
+	for(i=0;i<m;i++){
+		for(j=0;j<n;j++){
+			printf("  %d ",A[i][j]);
+		}printf("\n");
+	}
+	
+	printf("\nCreate second matrix - \n");
+	printf("\nEnter the no. of rows : ");
+	scanf("%d",&m1);
+	printf("\nEnter the no. of columns : ");
+	scanf("%d",&n1);
+		for(i=0;i<m1;i++){
+			for(j=0;j<n1;j++){
+				printf("Enter the element at  %d row and %d column: ",i+1,j+1);
+				scanf("%d",&v);
+				B[i][j]=v;
+			}
+		}
+		printf("\nSecond Matrix : \n");
+		for(i=0;i<m1;i++){
+			for(j=0;j<n1;j++){
+				printf("  %d ",B[i][j]);
+			}printf("\n");
+		}
+	w='y';
+	while(w=='y'){
+	printf("\nOperations on Matrices : \n");
+	printf("\t1.Addition\n");
+	printf("\t2.Multiplication\n");
+	printf("\t3.Transpose\n");
+	printf("\t4.Determinant\n");
+	printf("\nChoose an option from above : ");
+	scanf("%d",&c);
+	
+	switch(c){
+		case 1:
+			if(m==m1 && n==n1){
+			printf("\nAddition of Matrices - \n");
+			for(i=0;i<m;i++){
+				for(j=0;j<n;j++){
+					C[i][j]=A[i][j]+B[i][j];
+				}
+			}
+			for(i=0;i<m;i++){
+				for(j=0;j<n;j++){
+					printf("  %d ",C[i][j]);
+				}printf("\n");
+			}}
+			else{
+				printf("Addition is not possible");
+			}
+			break;
+		case 2:
+			if(m==n1 && n==m1){
+			printf("\nMultiplication of Matrices\n");
+			for(i=0;i<m;i++){
+				for(j=0;j<n1;j++){
+					sum=0;
+					for(k=0;k<n;k++){
+						sum+=A[i][k]*B[k][j];
+					}
+					C[i][j]=sum;
+				}
+			}
+			for(i=0;i<m;i++){
+				for(j=0;j<n1;j++){
+					printf("  %d ",C[i][j]);
+				}printf("\n");
+			}}
+			else{
+				printf("\nMultiplication is not possible");
+			}
+			break;
+		case 3:
+			printf("\nTranspose of matrix : \n");
+			for(i=0;i<m;i++){
+				for(j=0;j<n;j++){
+				C[j][i]=A[i][j];
+				}
+			}
+			for(i=0;i<n;i++){
+				for(j=0;j<m;j++){
+				printf(" %d ",C[i][j]);
+			
+				}printf("\n");
+			}
+			break;
+		case 4:
+			if(m==n){
+				printf("\nDeterminant of matrix A is ");
+				if(m==2){
+					det= (A[0][0] * A[1][1]) - (A[0][1] * A[1][0]);	
+				}
+				else if(m==3){
+				x = (A[1][1] * A[2][2]) - (A[2][1] * A[1][2]);
+    			y = (A[1][0] * A[2][2]) - (A[2][0] * A[1][2]);
+    			z = (A[1][0] * A[2][1]) - (A[2][0] * A[1][1]);
+    			det= (A[0][0] * x) - (A[0][1] * y) + (A[0][2] * z);
+				}
+				printf("%d",det);
+			}
+			else{
+				printf("\nPlease enter a square matrix");
+			}
+			break;
+		default:
+			printf("Invalid Input");
+			break;		
+	}
+	printf("\nDo you want to continue : ");
+	scanf("%s",&w);
+}
+	return 0;
+}
