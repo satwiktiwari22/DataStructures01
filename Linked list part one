@@ -1,0 +1,107 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node* next;
+};
+
+struct node* addatbeg(struct node* start){
+	struct node* temp;
+	int val;
+	printf("Enter value : ");
+	scanf("%d",&val);
+	temp=(struct node*)malloc(sizeof(struct node));
+	temp->data=val;
+	temp->next=start;
+	start=temp;
+	return start;
+}
+void addatend(struct node* start){
+	struct node* p;
+	struct node* end;
+	int v;
+	p=start;
+	while(p->next!=NULL){
+		p=p->next;
+	}
+	printf("Enter the value : ");
+	scanf("%d",&v);
+	end=(struct node*)malloc(sizeof(struct node));
+	end->data=v;
+	p->next=end;
+	end->next=NULL;
+	
+}
+void printlist(struct node* start){
+	struct node* p;
+	p=start;
+	while(p!=NULL){
+		printf("%d ",p->data);
+		p=p->next;
+	}
+}
+struct node* insert(struct node* start){
+	int n,i;
+	char c;
+	if(start==NULL){
+		printf("Enter start value :- \n");
+		start=addatbeg(start);
+		printf("Do you want to enter more elements (y or n) : ");
+		scanf("%s",&c);
+		if(c=='y'){
+			insert(start);
+		}
+	}
+	else{
+		printf("How many elements do you want to enter : ");
+		scanf("%d",&n);
+		for(i=0;i<n;i++){
+			addatend(start);
+		}
+	}
+	return start;
+}
+struct node* create(struct node* start){
+	int c;
+	printf("Enter start value :- \n");
+	start=addatbeg(start);
+	printf("Do you want to enter more elements (y or n) : ");
+	scanf("%s",&c);
+	if(c=='y'){
+		insert(start);
+	}
+	return start;
+}
+
+
+int main(){
+	int choice;
+	struct node *start=NULL;
+	while(1){
+	printf("\nOperations : \n");
+	printf("\t1. Create a List \n");
+	printf("\t2. Display List \n");
+	printf("\t3. Search an Element ");
+	printf("\t4. Insert an element in the List \n");
+	printf("\t5. Insert an element at the beg :  \n");
+	printf("\t6. Insert an element at the end :  \n");
+	printf("\t7. Insert an element before or after an element :  \n");
+	printf("\t8. Delete an element before or after an element :  \n");
+	printf("\t9. Delete first element in the List \n");
+	printf("\t10. Quit \n");
+	printf("Enter the choice : ");
+	scanf("%d",&choice);
+	switch(choice){
+		case 1:
+			printf("\nCreating a List - \n");
+			start=create(start);
+			break;
+		case 2:
+			printlist(start);
+			break;
+		case 10:
+			exit(1);
+	}
+}
+	return 0;
+}
