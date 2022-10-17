@@ -219,22 +219,22 @@ int main(){
             addbefore(start,val);
             break;
         case 8:
-        	printf("Enter the element after you want to delete : ");
-	        scanf("%d",&val);
 	        if(start==NULL){
 	        	printf("\nList is empty\n");
 			}
 			else{
+				printf("Enter the element after you want to delete : ");
+	        	scanf("%d",&val);
 				deleteafter(start,val);
 			}
 			break;
 		case 9:
-        	printf("Enter the element before you want to delete : ");
-	        scanf("%d",&val);
 	        if(start==NULL){
 	        	printf("\nList is empty\n");
 			}
 			else{
+				printf("Enter the element before you want to delete : ");
+	        	scanf("%d",&val);
 				deletebefore(start,val);
 			}
 			break;
