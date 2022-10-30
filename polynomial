@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+	int coeff;
+	int pow;
+	struct node* next;
+};
+
+int main(){
+	int c;
+	printf("\nPolynomial using Linked List -\n");
+	printf("\nChoose an option : ");
+	scanf("%d",&c);
+	switch(c){
+		case 1:
+			
+	}
+	
+	return 0;
+}
