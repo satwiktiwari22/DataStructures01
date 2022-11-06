@@ -7,6 +7,16 @@ struct node{
 	struct node* next;
 };
 
+struct node* createpoly(struct node* start){
+	int d;
+	printf("\nEnter the degree of the polynomial : ");
+	scanf("%d",&d);
+	printf("Enter the coefficients : \n");
+	while(d){
+		
+	}
+}
+
 int main(){
 	int c;
 	printf("\nPolynomial using Linked List -\n");
