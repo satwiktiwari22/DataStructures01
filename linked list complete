@@ -117,7 +117,7 @@ void printlist(struct node* start){
 		p=p->next;
 	}
 }
-struct node* insert(struct node* start){
+struct node* create(struct node* start){
 	int n,i;
 	char c;
 	if(start==NULL){
@@ -126,7 +126,7 @@ struct node* insert(struct node* start){
 		printf("Do you want to enter more elements (y or n) : ");
 		scanf("%s",&c);
 		if(c=='y'){
-			insert(start);
+			create(start);
 		}
 	}
 	else{
@@ -139,17 +139,6 @@ struct node* insert(struct node* start){
 	return start;
 }
 
-struct node* create(struct node* start){
-	int c;
-	printf("Enter start value :- \n");
-	start=addatbeg(start);
-	printf("Do you want to enter more elements (y or n) : ");
-	scanf("%s",&c);
-	if(c=='y'){
-		insert(start);
-	}
-	return start;
-}
  void search(struct node* start,int val){
     struct node* p;
 	p=start;
