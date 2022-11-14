@@ -1,0 +1,81 @@
+#include<stdio.h>
+int stack[100]={NULL};
+int top=NULL;
+int push(int top,int val){
+	if(top==NULL){
+		top=0;
+	}
+	else{
+		top++;
+	}
+	stack[top]=val;
+}
+int pop(int top){
+	int temp;
+	if(top==NULL){
+		printf("UNDERFLOW !");
+	}
+	else{
+		temp=stack[top];
+		stack[top]=NULL;
+		top--;
+	}
+	return temp;
+}
+void peek(int top){
+	if(top==NULL){
+		printf("UNDERFLOW !");
+	}
+	else{
+		printf("\nTop Value : %d",stack[top]);
+	}
+}
+int create(int top){
+	int s,i,v;
+	printf("Enter the no. elements you want to insert at start : ");
+	scanf("%d",&s);
+	for(i=0;i<s;i++){
+		printf("Enter value : ");
+		scanf("%d",&v);
+		push(top,v);
+	}
+}
+
+
+int main(){
+	
+	int c;
+	printf("\n-------------STACK USING ARRAY---------------\n");
+	printf("\n Choose Operation -\n");
+	printf("\n 1.Create Stack \n");
+	printf("\n 2.Push \n");
+	printf("\n 3.Pop \n");
+	printf("\n 4.Peek \n");
+	printf("\n 5.Display \n");
+	printf("\n 6.Quit \n");
+	printf("\n Enter Your Choice : ");
+	scanf("%d",&c);
+	while(1){
+		switch(c){
+			case 1:
+				create(top);
+				break;
+		case 2:
+				printf("Enter value : ")
+				push();
+		        break;
+		case 3: pop();
+		        break;
+		case 4: peek();
+		        break;
+		case 5: display();
+		        break;
+		case 6: exit(1);
+		        break;
+	}
+	}
+	
+	
+	
+	return 0;
+}
